@@ -200,7 +200,11 @@
   MathJax.startup.document.state(0)
   MathJax.texReset()
   MathJax.typesetPromise()
-}</script><script>(() => {
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
   const initValine = () => {
     const valine = new Valine(Object.assign({
       el: '#vcomment',
