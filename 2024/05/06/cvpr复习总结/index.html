@@ -1,0 +1,876 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HeidiWang | HeidiWang</title><meta name="author" content="HeidiWang"><meta name="copyright" content="HeidiWang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="introductionwhat is CV?### goal of CV     to write computer programs that can interpret images&#x2F;videos ### input:images or videos ### output:description of the world ### low level vision     measuremen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HeidiWang">
+<meta property="og:url" content="http://example.com/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="HeidiWang">
+<meta property="og:description" content="introductionwhat is CV?### goal of CV     to write computer programs that can interpret images&#x2F;videos ### input:images or videos ### output:description of the world ### low level vision     measuremen">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Wanghd6/imgbed/master/tao.jpg">
+<meta property="article:published_time" content="2024-05-06T04:23:24.157Z">
+<meta property="article:modified_time" content="2024-05-06T04:04:44.657Z">
+<meta property="article:author" content="HeidiWang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Wanghd6/imgbed/master/tao.jpg"><link rel="shortcut icon" href="/img/new-hd.png"><link rel="canonical" href="http://example.com/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"TQ7IDV7WMN","apiKey":"05892f2cb7b80665162f2aa1a232dfbd","indexName":"my-hexo-blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: HeidiWang","link":"链接: ","source":"来源: HeidiWang","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HeidiWang',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-06 12:04:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/Wanghd6/imgbed/master/tao.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/poi/"><i class="fa-fw fas fa-music"></i><span> POI</span></a></li><li><a class="site-page child" href="/paper/"><i class="fa-fw fas fa-video"></i><span> 经典论文</span></a></li><li><a class="site-page child" href="/cv/"><i class="fa-fw fas fa-music"></i><span> CV</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/Wanghd6/imgbed/master/banner-1571866_1280.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="HeidiWang"><span class="site-name">HeidiWang</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/poi/"><i class="fa-fw fas fa-music"></i><span> POI</span></a></li><li><a class="site-page child" href="/paper/"><i class="fa-fw fas fa-video"></i><span> 经典论文</span></a></li><li><a class="site-page child" href="/cv/"><i class="fa-fw fas fa-music"></i><span> CV</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-06T04:23:24.157Z" title="发表于 2024-05-06 12:23:24">2024-05-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-06T04:04:44.657Z" title="更新于 2024-05-06 12:04:44">2024-05-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h1><h2 id="what-is-CV"><a href="#what-is-CV" class="headerlink" title="what is CV?"></a>what is CV?</h2><pre><code>### goal of CV
+    to write computer programs that can interpret images/videos
+### input:images or videos
+### output:description of the world
+### low level vision
+    measurements
+    enhancement
+    region segmentation
+    features
+### mid level vision
+    reconstruction
+    depth
+    motion estimation
+### high level vision
+    category detection
+    activity recognition
+    deep understandings
+</code></pre>
+<h2 id="what-is-recognition"><a href="#what-is-recognition" class="headerlink" title="what is recognition"></a>what is recognition</h2><pre><code>### identificaiton of a pattern as a memeber of a class we already know , or we are familiar with
+2 type of recognition
+    calssification-supervised learning
+        classes are known
+    clustering-unsupervised learning
+        classes are unknown
+</code></pre>
+<h2 id="what-is-PR"><a href="#what-is-PR" class="headerlink" title="what is PR"></a>what is PR</h2><pre><code>### PR is a brunch of machine learning
+    focuses on the recognition of patterns and regularities in data
+### PR is a process of
+    analyzing and dealing with various information
+    charactering the objects or phenomenon
+    providing their descriptions,identifications ,classifications anf interpretations
+### PR is the study of how machine can
+    observe the enviroment(percive)
+    learn to distinguish the pattern of interest from their beckground(process)
+    make sound and resonable decisions about classes of pattenrs(prediction)
+### PR classifies &quot;pattern&quot; into classes
+### PR intends to 
+    quantify and favor a simple classifier
+    automatically determine that a simple curve is preferable to an even simpler straight line or a complicated boundary
+    predict how well the system will generalize to a new patterns
+### what is ML 
+    ML is a study of algorithms to improves their performance at specific task with experiments
+### ML is an interdiscilinary field of
+    the mathmatical foundations
+    practical applications of system
+    learning, reasoning and acting
+### supervised learning
+    a set of training data with known class labels
+    SL is to lean to sign the correct class label for a new input
+unsupervised learning
+    a set of traning data and features vectors
+    to lean their underlying similarities
+    clustering similar class together
+semi supervised learning
+    we can access to rather limited number of labeled data
+    unsupervised learning with a prior knowledge
+reinforcement learning
+    we only get feedback in the form of how well we are doing 
+    to learn to act in the way to maxmize rewards in the long term
+</code></pre>
+<h2 id="challenge"><a href="#challenge" class="headerlink" title="challenge"></a>challenge</h2><pre><code>viewpoint variation
+illumination
+occlusion
+scale
+deformation
+background clutter
+object intra-class variation
+local ambiguity
+the world behind the image
+</code></pre>
+<h1 id="Feature-extraction-and-matching"><a href="#Feature-extraction-and-matching" class="headerlink" title="Feature extraction and matching"></a>Feature extraction and matching</h1><pre><code>local features
+    properties of local features
+        locality
+            features are local,so robust to occlusion and clutter
+        quantity
+            hundreds or thousands in a single image
+        distinctiveness
+            can differentiate a large database of objection
+        efficiency
+                real-time performance achievable
+    find features invariant (geomatric 、photometirc)to transformation
+    approaches:
+        feature detection
+        feature descriptor
+        feature matching
+        feature tracking
+    main components:
+        detecion
+        description
+        matching
+    what makes a good feature
+        uniqueness
+    local measures of uniqueness
+        flat region:no change in all direction
+        edge region:no change along the edge direction
+        corner：significant change in all directions
+Feature detection:
+    shifting the window $W$ by $(u,v)$
+    define an sum of squared difference (SSD)error
+    $E(u,v)=\sum_&#123;(x,y) \in W&#125;^&#123;&#125; \left [ I(x+u,y+v)-I(x,y) \right ] ^2$
+    利用泰勒展开
+    let $I_&#123;x&#125;=\frac&#123;\partial I&#125;&#123;\partial x&#125; $ and $I_&#123;y&#125;=\frac&#123;\partial I&#125;&#123;\partial y&#125;$
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502101903.png)
+    an SSD error $E(u,v)$
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502104225.png)
+    其中， 
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502105517.png)
+    $E(u,v)$is locally approximated as a quadratic error function  
+    Horizontal edge:$I_x=0,H = \begin&#123;bmatrix&#125; 0 &amp;0 \\ 0 &amp;C\end&#123;bmatrix&#125;$
+    Vertical edge:$I_y=0,H = \begin&#123;bmatrix&#125; A &amp;0 \\ 0 &amp;0\end&#123;bmatrix&#125;$
+    Eigenvalues and eigenvectors of H:
+        Define shift directions with the smallest and largest change in error 
+        $x_&#123;max&#125;$=direction of the largest increase in $E$ 
+        $\lambda_&#123;max&#125;$= amount of increase in direction $x_&#123;max&#125;$ 
+        $x_&#123;min&#125;$= direciton o the smallest increse in $E$ 
+        $\lambda_&#123;min&#125;=amount of increse in direction $x_&#123;min&#125;$
+        $Hx_&#123;max&#125;=\lambda_&#123;max&#125;x_&#123;max&#125;$
+        $Hx_&#123;min&#125;=\lambda_&#123;min&#125;x_&#123;min&#125;$
+    classification of image points using eigenvualues of $H$
+        edge:$\lambda_&#123;2&#125;&gt;&gt;\lambda_&#123;1&#125;$ or $\lambda_&#123;1&#125;&gt;&gt;\lambda_&#123;2&#125; $
+        flat:l1 and l2 are small;E is almost constant in all directions 
+        Corner:$\lambda_&#123;1&#125;$ and $\lambda_&#123;2&#125;$ are large,$\lambda_&#123;1&#125; \sim \lambda_&#123;2&#125;$, $E$ increase in all directions 
+    corner detection:
+        Compute the gradient at each point in the image
+        Create the $H$ matrix from the entries in the gradient
+        Compute the eigenvalues
+        Find points with large response ($\lambda_&#123;max&#125; &gt; threshold$)
+        Choose those points where $\lambda_&#123;min&#125;$ is a local maximum as features
+    harris operator:
+        $\lambda_&#123;min&#125;$ is a variant of the &quot;harris operator&quot;for feature detection
+        $f = \farc&#123;\lambda_&#123;1&#125;\lambda_&#123;2&#125;&#125;&#123;\lambda_&#123;1&#125;+\lambda_&#123;2&#125;&#125;=\frac&#123;determination(H)&#125;&#123;trace(H)&#125;$
+        The $trac$ is the sum of diagonals,$trace(H)=h_&#123;11&#125;+h_&#123;22&#125;=A+C 
+        very similar to $\lambda_&#123;min&#125;$ but less expensive
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502154206.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502155533.png)
+feature description
+    image transformations:
+        geometric rotation
+        geometric scale
+        photometric intensity change
+    we want corner locations to be
+        invariant to photometric transformations
+        quivariant to geometric transformations
+    invariance:
+        corner locations do not change even if image is transformed
+    Equivariance:
+        if we have two tasnformed versions of the same image,feature should be  detected in corresponding locations
+    image translation
+        derivatives and windows function are equivariant
+        Corner location is equivariant w.r.t translation
+    image rotation
+        second moment ellipse rotates its shape(eigenvalues) remains the same
+        Corner location is equivariant w.r.t. rotation
+    affine intensity chang(仿射强度变化):$I \rightarrow aI + b$
+        only derivatives are used
+        intensity scaling $I \rightarrow aI$
+        Partially invariant to affine intensity change
+    scaling:
+        Neither invariant nor equivariant to scaling
+        scale invariant detection:
+            key idea：find scale that gives local maximum of $f$ in both position and scale
+            one definition of $f$ :the harris operator
+        automatic scale selection: 
+            computing $f$ for a larger and larger windows
+            using a fixed window size with gaussian pyramid
+        feature extraction:corners and blobs
+        another definition of $f$:laplacian of gaussian
+            Similar to a Difference of Gaussians (DoG)
+            Gaussian minus a slightly smaller Gaussian
+            laplacian of guassian = &quot;blob&quot; detector
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502210059.png)
+feature mathcing
+    Invariance vs Discriminability:
+        Invariance: Descriptor shouldn&#39;t change even if image is transformed 
+        Discriminability: Descriptor should be highly unique for each point 
+    Invariant descriptors
+        designed to be invariant to translation, 2D rotation, and scale
+    most feature desciptor can usually also handle:
+        Limited 3D rotations
+        Limited affine transforms
+        Limited illumination/contrast changes
+    How to achieve invariance
+        Make sure the detector is invariant
+        Design an invariant feature descriptor
+    Multiscale Oriented PatcheS descriptor
+    Scale Invariant Feature Transform (SIFT)
+    HOG: Histogram of Gradient
+    FREAK: Fast Retina Keypoint
+    LIFT: Learned Invariant Feature Transform
+    Keypoint detection: repeatable and distinctive
+        Corners, blobs, stable regions
+        Harris, DoG
+    Descriptors: robust and selective
+        spatial histograms of orientation
+        SIFT and variants are typically good for stitching
+        and recognition but, need not stick to one
+    Given a feature in an image $I_&#123;1&#125;$, how to find the best match in $I_&#123;2&#125;$,
+        Define distance function that compares two descriptors
+        Test all the features in $I_&#123;2&#125;$,, find the one with min distance
+    How to define the difference between teo features $f_&#123;1&#125;$ and $f_&#123;2&#125;$
+        Better approach: ratio distance =$ \frac&#123;\left\|f_&#123;1&#125;-f_&#123;2&#125;\right\|&#125;&#123;\left\|f_&#123;1&#125;-f_&#123;2&#125;^&#123;\prime&#125;\right\|&#125;$
+        $f_&#123;2&#125;$ is the best SSD match to $f_&#123;1&#125;$ in $I_&#123;2&#125;$ 
+        $f_&#123;2&#125;^&#123;\prime&#125;$ is the 2nd best SSD match to $f_&#123;1&#125;$ in $I_&#123;2&#125;$ 
+        Gives large values for ambiguous matches
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240502234229.png)
+</code></pre>
+<h1 id="Classification-using-Bayes-Decision-Theory"><a href="#Classification-using-Bayes-Decision-Theory" class="headerlink" title="Classification using Bayes Decision Theory"></a>Classification using Bayes Decision Theory</h1><pre><code>## Bayes decision theory
+    statistic method for pattern recognition
+    fundamentals of most pattern recognition algorithms
+basic assumption
+    the decision problem is posed in probabilistic terms
+    all relevant probability values are known
+decision before observation
+    problem: make a decision where prior probability $P(\omega) is known 
+    No observation is allowed
+Bayes formula:
+    $P\left(\omega_&#123;j&#125; \mid x\right)=\frac&#123;p\left(x\mid \omega_&#123;j&#125;\right) P\left(\omega_&#123;j&#125;\right)&#125;&#123;p(x)&#125;$
+    $posterior = \frac&#123;likelihood \times prior&#125;&#123;evidence&#125;$
+    likelihood :class-conditional PDF,$p(x|\omega_&#123;j&#125;)where $1 \le j \le c$ 
+    prior probability$P(\omega_&#123;j&#125;) 
+    evidence:unconditional density of $x$, $ &#123;\textstyle \sum_&#123;&#125;^&#123;&#125;&#125; p(x)=\sum_&#123;j=1&#125;^&#123;c&#125; p\left(x \mid \omega_&#123;j&#125;\right) P\left(\omega_&#123;j&#125;\right)$
+    unknown posterior probability, $p(w_&#123;j&#125; \mid x)
+Bayes decision rule:
+    if $P(\omega_&#123;j&#125;\mid x)&gt;P(\omega \ mid x) ,\forall i \ne j \Rightarrow $ decide $\omega_&#123;j&#125;$
+    $P(\omega_&#123;j&#125;)$ and $p(x \mid \omega_&#123;j&#125;) are assumed to be konwn
+    $p(x)$ is irrelevant to Bayesian decisioin
+    $p(x)$ is a normalization factorand unrelated to any class
+special case 1:
+    euqal prior probability :$P(\omega_&#123;1&#125;)=P(\omega_&#123;2&#125;)=...P(\omega_&#123;c&#125;)= \frac&#123;1&#125;&#123;c&#125;$
+    depends on the likelihood $p(x \mid \omega_&#123;j&#125;)$
+special case 2:
+    equal likelihood $p(x \mid \omega_&#123;1&#125;) = p(x \mid \omega_&#123;2&#125;=...=p(x \mid \omega_&#123;c&#125;)$
+    reverse back to naive decision rule
+Bayes decision rule (for classes c=2)
+    if $P(\omega_&#123;1&#125;|x)&gt;P(\omega_&#123;2&#125;|x)$ , decide $\omega_&#123;1&#125;$ , otherwise , decide $\omega_&#123;2&#125;$
+    equivalently, if $p(x\mid \omega_&#123;1&#125;)P(\omega_&#123;1&#125;)&gt;p(x \mid \omega_&#123;2&#125;)P(\omega_&#123;2&#125;)$ , decide $\omega_&#123;1&#125;$ , otherwise $\omega_&#123;2&#125;$ 
+    for euiprobable classes:$P(\omega_&#123;1&#125;) = P(\omega_&#123;2&#125;)$
+    if $p(x\mid \omega_&#123;1&#125;)&gt;p(x \mid \omega_&#123;2&#125;)$ , decide $\omega_&#123;1&#125;$ , otherwise $\omega_&#123;2&#125;$
+Example1:
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503150123.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503150217.png)
+Example2:
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503165958.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503170405.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503170445.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503170652.png)
+Loss function
+    Whenever we observe a particular $x$ , the probability of errror is:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503172715.png)
+    using Bayes decision rule:
+        $P(error \mid x)=min[P(\omega_&#123;1&#125;\mid x),P(\omega_&#123;2&#125;\mid x)]
+    For each $x$, $P(error \mid x)$ should be as small as possible
+    average probability of error should be as small as possible for all possible $x$
+    Bayesian classifier is optimal with respect to minimizing the classification error probability!!! 
+    A loss funcion is more general than probability of error , $\lambda(\alpha _i \ mid \omega_&#123;j&#125;),the loss of taking action $\alpha_&#123;i&#125;$ when the class is $\omega _j$
+    where:
+        more than one feature:
+        $x \in R \Rightarrow \in R^&#123;d&#125; $ (d-dimensional Euclidean space)
+        c classes(state of nature): $\Omega \in &#123;\omega _1,\omega _2,...\omega _c&#125;$
+        actions(instead of only deciding the class):$\mathcal&#123;A&#125; = \left \&#123;   \alpha_1,\alpha_2,...\alpha_&#123;a&#125;\right \&#125;$(finite set of a possible actions, $a \ne c$ )
+    Expected loss(conditional risk)
+        $R(\alpha_i \mid x) = \sum_&#123;j=1&#125;^&#123;c&#125; \lambda (\alpha_i \mid \omega _j)P(\omega _j \mid x)$
+        $\lambda (\alpha_i \mid \omega _j)$:the incurred loss of taking action $\alpha _i$ in the true class $\omega _j$
+        $P(\omega _j \mid x)$: the probability of $\omega _j$ being the true class of $x$
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503220605.png)
+    Task(general case) :
+        to find a mapping from patterns to actions:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503221322.png)
+    Overall risk R:
+        $R = \int R(\alpha (x)\mid x)p(x)dx$
+        where $p(x)$: pdf of patterns ,and
+        $R(\alpha (x)\mid x)p(x):$ conditional risk of pattern $x$ with action $\alpha(x)$
+        it is the expected loss with decision function $\alpha ()$ ;
+        for every $x$, conditional risk $R(\alpha (x) \mid x) must be as small as possible
+        the overall risk for all possible $x$ must be as small as possible
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503223636.png)
+    Special case :two-category classification
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503224428.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503224625.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503225203.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503225428.png)
+    example:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503225928.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503225959.png)
+    Minimum-Error-Rate classification
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503230442.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503230624.png)
+Discriminant functions
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503231510.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503231547.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503231704.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503231828.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503232053.png)
+Bayesian Classification for Normal Distributions
+    normal/Gaussian distribution:multivariate case
+        $X \sim N(\mu , \Sigma ):$
+        $p(X) = \frac&#123;1&#125;&#123;(2 \pi)^&#123;\frac&#123;d&#125;&#123;2&#125;&#125;\left | \Sigma \right | ^&#123;\frac&#123;1&#125;&#123;2&#125;&#125;&#125;exp\left [ -\frac&#123;1&#125;&#123;2&#125;(X-\mu)^&#123;T&#125;\Sigma ^&#123;-1&#125;(X- \mu) \right ] $
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240503233740.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504004114.png)
+    example(2-dimensional case):
+        $X \sim N(\mu , \Sigma ):$
+        $p(X) = \frac&#123;1&#125;&#123;(2 \pi)\left | \Sigma \right | ^&#123;\frac&#123;1&#125;&#123;2&#125;&#125;&#125;exp\left [ -\frac&#123;1&#125;&#123;2&#125;(x_1-\mu_&#123;1&#125;)(x_2-\mu_&#123;2&#125;)^&#123;T&#125;\Sigma ^&#123;-1&#125;\begin&#123;pmatrix&#125;x_1 - \mu_&#123;1&#125; \\x_2 - \mu_&#123;2&#125;\end&#123;pmatrix&#125; \right ] $
+        where
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504004933.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504010408.png)
+    case 1:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504011512.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504012052.png)
+    case 2:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504012426.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504012637.png)
+    case 3:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504012748.png)
+    Minimum Distance Classifiers
+        $P(\omega_&#123;i&#125;)=\frac&#123;1&#125;&#123;c&#125;$, equiprobable
+        $g_&#123;i&#125;(x)=-\frac&#123;1&#125;&#123;2&#125;(x-\mu_&#123;i&#125;)^&#123;T&#125;\Sigma_&#123;i&#125;^&#123;-1&#125;(x-\mu_&#123;i&#125;)$
+        $\Sigma_&#123;i&#125;=\sigma^&#123;2&#125;I$:
+            assign $x \rightarrow \omega_&#123;i&#125;$ , small Euclidean Distance: $d_&#123;E&#125; \equiv \left \| x-\mu_&#123;i&#125; \right \| $
+        $\Sigma_&#123;i&#125;=\Sigma$:
+            assign $x \rightarrow \omega_&#123;i&#125;$ , small Mahalanobis Distance: $d_&#123;m&#125; \equiv \sqrt&#123;(x-\mu_&#123;i&#125;)^&#123;T&#125;\Sigma^&#123;-1&#125;(x-\mu_i)&#125; $
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504014621.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504014659.png)
+</code></pre>
+<h1 id="Estimation-Methods"><a href="#Estimation-Methods" class="headerlink" title="Estimation Methods"></a>Estimation Methods</h1><pre><code>Parameter Estimation
+    $P(\omega_&#123;j&#125; \ mid x)=\frac&#123;p(x \mid \omega_&#123;j&#125;)P(\omega_&#123;j&#125;)&#125;&#123;p(x)&#125;$ $1 \leq j \leq c$ (bayes formula) 
+    likelihood $p(x \mid \omega_&#123;j&#125;)$ and Prior probability $P(\omega_&#123;j&#125;)$
+        unkown
+        eatimateed from training samples(supervised learning)
+    collect training samples $X = &#123;x_1 , x_2,... x_N&#125;$ distributed according to $p(x \mid \omega_&#123;j&#125;)$
+    $x_1 , x_2,... x_N$ are i.i.d
+    For prior probability $P(\omega_&#123;j&#125;)$
+        $P(w_&#123;j&#125;) = \frac&#123;\left | x_&#123;j&#125; \right | &#125;&#123; &#123;\textstyle \sum_&#123;i=1&#125;^&#123;N&#125;&#125;\left | x_&#123;i&#125; \right | &#125;$
+        where $\left | x \right |$ is the number of elements in $x$
+    Estimation under parametric form : $p(x \mid \omega_&#123;j&#125; , \theta_&#123;j&#125;)
+        Maximum-likelihood(ML) estimation
+            consider parameters as fixed but unknown quantities
+            estimate parameters by maximizing likelihood of observing actual training examples
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504133526.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504165739.png)
+            ML estimation of $\hat&#123;\theta&#125; $
+                $\hat&#123;\theta_&#123;ML&#125;&#125;:\hat&#123;\frac&#123;\partial L(\theta)&#125;&#123;\partial \theta&#125; &#125; = 0$
+            namely , $\hat&#123;\theta_&#123;ML&#125;&#125;:\sum_&#123;k=1&#125;^&#123;N&#125; \frac&#123;\partial \ln p\left(x_&#123;k&#125; \mid \theta\right)&#125;&#123;\partial \theta&#125;=0$
+            case 1:
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504174432.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504175352.png)
+            case 2:
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504183834.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504184057.png)
+            for multivariates case:
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504184231.png)
+        Bayes estimation
+            consider parameters as random variables with some known prior distribution
+            we look $\theta$ as an unknown random vector, described by a PDF $p(\theta)$ 
+            Given $X = &#123;x_1 , x_2 ,...,x_N&#125;$ , we compute the maximum of $p(\theta \mid X)$
+            observing the actual training examples transforms the parameters&#39; prior distribution into posterior distribution using Bayes formula
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504190701.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504190735.png)
+        example:
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504191446.png)
+</code></pre>
+<h1 id="Dimension-Reducion"><a href="#Dimension-Reducion" class="headerlink" title="Dimension Reducion"></a>Dimension Reducion</h1><pre><code>## dimension reduction
+    changes the data representation into a low-dimensional one
+    preserve the data structure
+    is usually unsupervised
+    ### why dimension reduction
+        computation complexity
+            The computation complexity grows exponentially with the data dimension
+        pre_processing stage before further learning
+        data visulization
+            Projection of high-dimensional data to 2D or 3D
+            2D/3D plots of data make nice pictures
+        data interpretation
+            recovering the intrinsic dimensionality of the data
+            Some data features may be irrelevant
+    Application:
+        Pattern recognition and analysis
+        Digital image and speech processing
+        Gene expression microarray data
+        Visualization of large networks
+    Methods:
+        Principal component analysis (PCA)Independent component analysis (ICA)
+        Linear discriminant analysis (LDA)
+        Locally linear embedding (LLE)
+        Linear discriminant embedding (LDE)
+        Canonical correlation analysis (CCA)
+## Singular Value Decomposition (SVD)
+    SVD definition
+        $A_&#123;m \times n&#125;=U_&#123;m \times m&#125;S_&#123;m \times n&#125;V^&#123;T&#125;_&#123;n \times n&#125;
+        A is any $m \times n$ matrix
+        U is any $m \times n$ orthogonal matrix
+            正交矩阵：$UU^&#123;T&#125;=U^&#123;T&#125;U=1$,$U^&#123;T&#125;=U^&#123;-1&#125;$
+        S is any $m \times n$ diagonal matrix
+        V is any $m \times n$ orthogonal matrix
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504203139.png)
+        Singular values $\omega_1 &gt; |omega_2 &gt;...&gt;\omega_n &gt;0$ 沿着S的主对角线以降序出现
+        $\omega_&#123;1&#125;^&#123;2&#125; &gt; |omega_&#123;2&#125;^&#123;2&#125; &gt;...&gt;\omega_&#123;n&#125;^&#123;2&#125; $ are the eigenvalues of $AA^&#123;T&#125;$ and $A^&#123;T&#125;A$
+        Calculation procedures of SVD
+            Step 1: Calculate $AA^&#123;T&#125;$ and $A^&#123;T&#125;A$
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504203702.png)
+            Step 2: Eigenvalues and S
+                根据$\left | AA^&#123;T&#125;-\lambda I \right | =0$算出$\lambda$以及它的正平方根$\theta$,根据$\theta$得出矩阵S
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504203731.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504205132.png)
+            Step 3: Finding U
+                根据$(AA^&#123;T&#125;-\lambda I )x =0$算出对应的$x$，并单位化后得到向量$u$,根据$u$得出矩阵U
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504210552.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504210615.png)
+            Step 4: Finding V
+                与setp 3 步骤相同，但根据$(A^&#123;T&#125;A-\lambda I )x =0$进行计算
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504211055.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504211106.png)
+            Step 5: Complete SVD
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504211951.png)
+## Principle Component Analysis (PCA)
+    PCA:
+        Performs a linear projection of the data to a lower-dimensional space
+        Maximizes the data variance in the low-dimensional representation
+        A simple and non-parametric method of extracting relevant information from confusing data
+        Straightforward way on how to reduce a complicate data set to a
+        lower dimension
+    problem formulation:
+        Reduce the data set from n-dimensions to k-dimensions
+        Find k vectors $u^&#123;(1)&#125;,u^&#123;(2)&#125; ...u^&#123;(k)&#125;$
+        Project the data to minimize the projection error
+    data preprocessing:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504233655.png)
+        reduce data feom n-dimensions to k-dimensions
+            comupute covariance matrix
+            $\Sigma=\frac&#123;1&#125;&#123;m&#125; \sum_&#123;i=1&#125;^&#123;m&#125; x^&#123;(i)&#125;\left(x^&#123;(i)&#125;\right)^&#123;T&#125;=\frac&#123;1&#125;&#123;m&#125; X X^&#123;T&#125;$
+            compute eigenvectors of matrix $\Sigma$ using matlab function svd or eig
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504234515.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504235810.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504235919.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240504235933.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505000007.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505000635.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505000910.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505001158.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505001315.png)
+## LDA
+    PCA:
+        finds the most accurate data representation in a lower dimensional space
+        projects data i nthe directions of maximum variance
+        problem:
+            the directions of maximum variance may be useless for classification
+    LDA:
+        is called Fisher Linear discriminant analysis
+        projects data to the direction useful for data classification
+        objective:
+            LDA reduces data dimensionality while preserving the discriminative information
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505003359.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505003528.png)
+        sample means of each class in x-sapce and y-sapce:
+            $\mu_i = \frac&#123;1&#125;&#123;N_i&#125;\sum_&#123;x \in \omega_i&#125;x$
+            $\hat&#123;\mu&#125;_i = \frac&#123;1&#125;&#123;N_i&#125;\sum_&#123;y \in \omega_i&#125;y=\frac&#123;1&#125;&#123;N_i&#125;\sum_&#123;y \in \omega_i&#125;w^&#123;T&#125;x=w^&#123;T&#125;\mu_i$
+        distance between projected means is :
+            \left | \tilde&#123;\mu&#125;_1- \tilde&#123; \mu&#125;_2 \right | =\left | w^&#123;T&#125;(\mu_1-\mu_2) \right | 
+            It ignores the standard deviation within classes
+        Fisher&#39;s solution is to maximize the difference between the means, normalized by a measure of the within-class scatter
+        scatter is equivalent of the variance of each class:
+            $\tilde&#123;s&#125;_&#123;i&#125;^&#123;2&#125; = \sum_&#123;y \in \omega_i&#125;(y-\tilde&#123;\mu&#125;_i)^2$
+        the within-class scatter of the projected samples:$(tilde&#123;s&#125;_&#123;1&#125;^&#123;2&#125;+tilde&#123;s&#125;_&#123;2&#125;^&#123;2&#125;)
+        the criterion function
+            $J(w)=\frac&#123;\left | \tilde&#123;\mu&#125;_1- \tilde&#123; \mu&#125;_2 \right |^&#123;2&#125;&#125;&#123;tilde&#123;s&#125;_&#123;1&#125;^&#123;2&#125;+tilde&#123;s&#125;_&#123;2&#125;^&#123;2&#125;&#125;
+        Fisher linear discriminant is defined as a linear function $w^&#123;T&#125;x$ that maximizes the criterion function $J(W)$ 
+        LDA seeks for a projection allowing：
+            samples from the same class are very close to each other
+            projected means are as farther apart as possible
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505010733.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505010841.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505010904.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505011018.png)
+    example：
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505011728.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505011843.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505012051.png)
+</code></pre>
+<h1 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h1><pre><code>## Motivation
+    Supervised learning algorithm for classification and regression
+    Derived from statistical learning theory
+    Exceptional performance in handwritten digital recognition
+    ### philosiphy
+    Finding an optimized separating hyperplane to maximize margins
+    Converting problem to the dual problem
+    Allowing for errors in classificaiton using “slack variables”
+    Using kernel mapping for better linear separation of nonlinearly separable data
+    A kernel is like using an infinite number of features
+Given two linearly separable classes , each hyperplane is characterized by :
+    $f(x)=w^&#123;T&#125;x + b = 0$
+    its direction in sapce,$w$
+    its position in space, $b$
+SVMs use a single hyperplane to distinguish 2 classes , it has many possible solutions .  
+Hypeplane maximizes the margin is better . 
+Support vector:
+    a subset of training samples
+    samples closest to hyperplane
+    the most difficulty to classify
+Distance from each sample $x_i$ to the hyperplane is
+    $r = \frac&#123;w^&#123;T&#125;x_&#123;i&#125;+b&#125;&#123;\left \| w \right \| &#125;$
+    $w$ is the weight vector 
+    $b$ is the bias
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505122010.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505122330.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505122508.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505123205.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505123255.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505125909.png)
+    support vectors are the closest vectors for each class to the classifier $w^&#123;T&#125;x_i + b = \pm 1$
+    The optimal hyperplane classifier of a support vector machine is unique.
+    The quadratic optimization problem
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505135727.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505135934.png)
+    This dual problem is a convex quadratic programming (QP)
+    problem
+        Global maximum of $\lambda_&#123;i&#125;$ can always be found
+        Well established tools for solving this optimization problem
+        The solution involves constructing a dual problem
+        Lagrange multiplier $\lambda_&#123;i&#125;$ is associated with every inequality
+        constraint in the original problem
+    Given a solution $\lambda_&#123;1&#125;,\lambda_&#123;2&#125;,...lambda_&#123;N&#125;$ to the dual problem,solution to the original problem is:
+        $w = \sum_&#123;i=1&#125;^&#123;N&#125;\lambda_&#123;i&#125;y_&#123;i&#125;x_&#123;i&#125;$ 
+        $b = y_k -\sum_&#123;i=1&#125;&#123;N&#125;\lambda_&#123;i&#125;w^&#123;T&#125;x_&#123;k&#125;$ , $\forall \lambda_&#123;k&#125; &gt; 0$
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505160024.png)
+    Soft Margin Classification
+        Non-separable Classes
+        There is no hyperplane satisfying $y_&#123;i&#125;\left(w^&#123;T&#125; x+b\right)&gt;1 \quad \forall x$
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505160515.png)
+        Slack variables $\xi_&#123;i&#125; ≥ 0$
+            $y_i(w^&#123;T&#125;x+b) ≥ 1 − \xi_i$
+            Samples outside the margin
+            (correctly classified): $\xi_i = 0$
+            Margin Violation: $0 &lt; \xi_i \le 1$
+            Misclassified samples: $\xi_i &gt;1$
+            $\xi_i$ allows misclassification of difficult or noisy samples
+            Resulting margin is called soft margin 
+            $\xi_i$ is based on the output of the
+            discriminant function $w^&#123;T&#125;x+b$
+            $\xi_i$ approximates the number of
+            misclassified samples
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505171142.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505171516.png)  
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505171844.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505171855.png)
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505172056.png)
+    Nonelinear SVM
+        Linear SVM
+            The classifier is a separating hyperplane
+            Most important training points are support vectors
+            Support vectors define the hyperplane
+            Quadratic optimization algorithms can identify which training points
+            $x_i$ are support vectors with non-zero Lagrangian multipliers $\lambda_i$
+        Non-linear SVM
+            ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505182243.png)
+            General idea:
+                The original feature space can always be mapped to some higherdimensional feature space $\Phi (x)$where the training set is separable.
+            Possible transformation problems:
+                High computation burden due to high dimensionality
+                Hard to obtain a good estimation
+            SVM solves these two issues simultaneously
+            Kernel tricks for efficient computation
+            Minimize $\left \| w \right \| ^&#123;2&#125;$ can lead to a “good” classifier
+            kernel funcion
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505214348.png)
+            kernel example
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505220129.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505221238.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505221343.png)
+                ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505221614.png)
+        SVM properties:
+            Flexibility in choosing a similarity function
+            Sparseness of solution when dealing with large data sets
+            Only support vectors are used to specify the separating hyperplane
+            Ability to handle large feature spaces
+            Complexity does not depend on the dimensionality of the feature space
+            Overfitting can be controlled by soft margin approach
+        SVM properties (Cont.)
+            Nice path property: a simple convex optimization problem
+                Guarantee to converge to a single global solution
+            Feature selection
+        SVM applications
+            hand-written character recognition
+            image classification
+            Bioinformatics
+                Protein classification
+                Cancer classification
+</code></pre>
+<h1 id="Perceptron-and-Neural-Networks"><a href="#Perceptron-and-Neural-Networks" class="headerlink" title="Perceptron and Neural Networks"></a>Perceptron and Neural Networks</h1><pre><code>## Perceptron Algorithm
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505225028.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505225219.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505230603.png)
+    Our goal: compute a solution, a hyperplane $w$, so that
+        $w^&#123;T&#125;x + w_&#123;0&#125; &gt; 0 (or &lt; 0),$ $x \in \omega_&#123;1&#125;(or \omega_&#123;2&#125;)
+    Perceptron algorithm:
+        Defines a cost function
+        Chooses an algorithm to minimize the cost function
+        The minimum corresponds to a solution
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505232705.png)
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240505232842.png)
+    example:
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240506000322.png)
+    The perceptron algorithm is a reward and punishment scheme
+        if $w^&#123;T&#125;x + w_&#123;0&#125; &gt; 0$, assign $x \in \omega_&#123;1&#125;$
+        if $w^&#123;T&#125;x + w_&#123;0&#125; &lt; 0$, assign $x \in \omega_&#123;2&#125;$
+    XOR problem:
+        AND and  OR operations are linearly separable
+        For XOR problem , draw two-lines , This is a two-phase design.
+    Two-Layer Perceptron:
+        Phase 1: draw two-lines (hyperplanes)
+            $g_1(x) = g_2(x) = 0$
+        Each one is realized by a perceptron
+        Depending on the position of $x$, the outputs of perceptrons are
+            $y_&#123;i&#125;=f\left(g_&#123;i&#125;(x)\right)=\left\&#123;\begin&#123;array&#125;&#123;l&#125;0 \\1\end&#123;array&#125;\right.$
+        Phase 2: find the position of x w.r.t both lines
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240506095136.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240506100242.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240506100903.png)
+        ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240506104157.png)
+        Two-layer perceptron
+            The output neuron realizes a hyperplane in the transformed space
+            The hyperplane separates some vertices from the others
+            It has the capability to classify vectors into classes that consist of
+            unions of polyhedral regions
+            However, not any union, It depends on the relative position of the
+            corresponding vertices
+    Three-layer perception
+        It can classify vectors into classes consisting of ANY union of
+        polyhedral regions
+        The idea is similar to the XOR problem
+        It realizes more than one planes in the $y \in R^&#123;p&#125; $space.
+        1st layer forms the hyperplanes
+        2nd layer forms the regions
+        output neuron forms the classes
+        Output neuron realizes an OR gate
+        For each vertex with class A, construct a hyperplane to leaves it on one side (+) and ALL others to the other side (-)
+        Ways to design multilayer perceptrons are developing a
+        structure
+            to classify correctly all the training patterns
+            OR to compute the synaptic weights to optimize a cost function
+    ![](https://raw.githubusercontent.com/Wanghd6/imgbed/master/20240506111228.png)
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">HeidiWang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/">http://example.com/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">HeidiWang</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/Wanghd6/imgbed/master/tao.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/04/28/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Valine</span><span id="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/Wanghd6/imgbed/master/tao.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">HeidiWang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Wanghd6/wanghd6.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wanghd6" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:18856308712@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里是我对日常的整理总结，希望对你有所帮助:)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduction"><span class="toc-number">1.</span> <span class="toc-text">introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#what-is-CV"><span class="toc-number">1.1.</span> <span class="toc-text">what is CV?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#what-is-recognition"><span class="toc-number">1.2.</span> <span class="toc-text">what is recognition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#what-is-PR"><span class="toc-number">1.3.</span> <span class="toc-text">what is PR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#challenge"><span class="toc-number">1.4.</span> <span class="toc-text">challenge</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Feature-extraction-and-matching"><span class="toc-number">2.</span> <span class="toc-text">Feature extraction and matching</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Classification-using-Bayes-Decision-Theory"><span class="toc-number">3.</span> <span class="toc-text">Classification using Bayes Decision Theory</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Estimation-Methods"><span class="toc-number">4.</span> <span class="toc-text">Estimation Methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dimension-Reducion"><span class="toc-number">5.</span> <span class="toc-text">Dimension Reducion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Support-Vector-Machines"><span class="toc-number">6.</span> <span class="toc-text">Support Vector Machines</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Perceptron-and-Neural-Networks"><span class="toc-number">7.</span> <span class="toc-text">Perceptron and Neural Networks</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/" title="无题">无题</a><time datetime="2024-05-06T04:23:24.157Z" title="发表于 2024-05-06 12:23:24">2024-05-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2024-04-28T05:27:09.764Z" title="发表于 2024-04-28 13:27:09">2024-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'http://example.com/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/'
+    this.page.identifier = '/2024/05/06/cvpr%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93/'
+    this.page.title = ''
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Valine' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.1/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.65.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.13.0"></script></div></div></body></html>
